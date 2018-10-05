@@ -1,0 +1,22 @@
+<style>
+    span{
+      color: rgb(228, 33, 33)
+    }
+  </style>
+<h1 mat-dialog-title>Login</h1>
+<div mat-dialog-content >
+  <form #lfrm="ngForm">
+  <mat-form-field>
+    <input matInput [(ngModel)]="Email" name="unaame" #unm="ngModel" placeholder="Email" required>
+  </mat-form-field>
+  <span *ngIf="unm.errors && unm.errors.required">{{msg1}}</span>
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" name="unpass" #ups="ngModel"  placeholder="Password" required>
+  </mat-form-field>
+  <span *ngIf="ups.errors && ups.errors.required">{{msg1}}</span>
+</form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button  (click)="funLog(lfrm)" cdkFocusInitial>LogIn</button>
+</div>

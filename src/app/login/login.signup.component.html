@@ -1,0 +1,52 @@
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  
+<div id="mySidenav" class="sidenav">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <a>About</a>
+  <a  routerLink="/services">Services</a>
+  <a  routerLink="/contact">Contact</a>
+  <a  routerLink="/client">Clients</a>
+</div>
+<div id="main">
+    <mat-toolbar style="background-color:#3f51b5">
+        <mat-toolbar-row>
+          <span *ngIf="showHideNavbar" style="font-size:30px;cursor:pointer" (click)="openNav()" style="color:blanchedalmond">&#9776;&nbsp;I-Prime Task</span>
+          <span class="example-spacer"></span>         
+          <span id="logSin" *ngIf="showbtn">
+          <button mat-button style= "color:white" (click)="login()">Login</button> &nbsp;
+          <button mat-raised-button color="primary" (click)="signup()">Signup</button>
+          </span>
+          <span id="logSin" *ngIf="showbtnLgot">
+              <div class="dropdown" id="welcome" >
+                  <span class="btn btn-primary dropdown-toggle" style="background-color: #0a0a0a;border:3px solid #0a0a0a"  data-toggle="dropdown">Welcome  &nbsp; {{username}}
+                  <span class="caret"></span>
+                  </span>
+                  <ul class="dropdown-menu" style="margin-left: -50px;padding: 15px;">
+                    <li><i class="fa fa-user-circle-o" style="font-size: 40px;color: rgb(146, 179, 168);margin-left: 45px;"></i></li><hr>
+                    <li><button class="btn btn-warning"  (click)="logout()" style="width: 100%;border-radius:0px">Logout</button></li>
+                  </ul>
+                </div>
+              </span>
+        </mat-toolbar-row>
+      </mat-toolbar>  
+      
+      <router-outlet></router-outlet>
+      <app-footer></app-footer> 
+</div>     
+</body>
+</html> 
+
+
+
+
+
+
+
+
+  
+

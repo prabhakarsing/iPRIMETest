@@ -1,0 +1,13 @@
+{"/signupApi/*":{
+    "target":"http://localhost:1234",
+    "secure":true
+
+
+},
+"/loginApi/*":{
+    "target":"http://localhost:1234",
+    "secure":true
+
+
+}
+}

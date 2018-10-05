@@ -1,0 +1,35 @@
+<style>
+  span{
+    color: rgb(228, 33, 33)
+  }
+</style>
+<h1 mat-dialog-title>Hi Register for Our Services</h1>
+<div mat-dialog-content >
+  <form #frm1='ngForm'>
+  <mat-form-field   class="example-full-width">
+    <input matInput [(ngModel)]="firstName" name="fstname" placeholder="First Name" #fname='ngModel' required>
+  </mat-form-field>
+  <span *ngIf="fname.errors && fname.errors.required">{{msg1}}</span>
+  <mat-form-field  class="example-full-width">
+    <input matInput [(ngModel)]="lastName" name="lstname"  placeholder="Lastname" #lname='ngModel' required>
+  </mat-form-field>
+  <span *ngIf="lname.errors && lname.errors.required">{{msg2}}</span>
+  <mat-form-field  class="example-full-width">
+    <input matInput [(ngModel)]="email" name="emailid"  placeholder="Email" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" #uemail='ngModel' required >
+  </mat-form-field>
+  <span *ngIf="uemail.errors && uemail.errors.required">{{msg3}}</span>
+  <span *ngIf="uemail.errors && uemail.errors.pattern">{{msgg3}}</span>
+  <mat-form-field  class="example-full-width">
+    <input matInput type="password" [(ngModel)]="password" name="upass"  placeholder="Password" #upass='ngModel' required>
+  </mat-form-field>
+  <span *ngIf="upass.errors && upass.errors.required">{{msg4}}</span>
+  <mat-form-field  class="example-full-width">
+      <input matInput type="password" [(ngModel)]="reenterPassword" name="upass"  placeholder="Renter Password" #upass='ngModel' required (blur)="checkPassword(password)">
+    </mat-form-field>
+    <span >{{msg5}}</span>
+  </form>  
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button (click)="fun1(frm1)" cdkFocusInitial>Ok</button>
+</div>
